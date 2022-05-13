@@ -1,0 +1,144 @@
+<table border="2px">
+    <thead>
+        <th>First Name</th>
+        <th>Meddel Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Email Id</th>
+        <th>Address</th>
+        <th>Place</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </thead>
+
+    <tbody>
+        {% for i in I %}
+
+        <tr>
+            <td>{{i.f_name}}</td>
+            <td>{{i.m_name}}</td>
+            <td>{{i.l_name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.dob}}</td>
+            <td>{{i.gender}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.place}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.date1}}</td>
+            <td>
+                <a href="{% url 'update_url' i.id %}">
+                    <button type="button">update</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'remove_url' i.id %}">
+                    <button type="button">Remove</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'card_url' i.id %}">
+                    <button>I Card</button>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+<br><br><br><br><br>
+
+<html>
+    <head>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 0;
+                padding-top: 50px;
+                height: 40%;
+            }
+
+            .card{
+                box-shadow: 0 5px 5px 5px #e1e1e1;
+                max-width: 350px;
+                padding: 15px;
+                border-radius: 5px;
+                margin: auto;
+                text-align: center;
+            }
+            img {
+                width: 55%;
+                border: 5px solid #e1e1e1;
+                border-radius: 10%;
+            }
+            table, table tr td {
+                width: 350px;
+                margin: 0 auto;
+                border: 1px solid #5c5454;
+                text-align: left;
+            }
+             
+        </style>
+        <body>
+            
+
+            <div class="card">
+                <h1>I'd Card</h1>
+                <img src="{{B.photo.url}}" alt="">
+                <h1>{{B.name}}</h1>
+
+                <table>
+                    <tr>
+                        <td>First Name</td>
+                        <td>{{B.f_name}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Middle Name</strong></td>
+                        <td>{{B.m_name}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Last Name</strong></td>
+                        <td>{{B.l_name}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Age</strong></td>
+                        <td>{{B.age}}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Gender</strong></td>
+                        <td>{{B.gender}}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Email</strong></td>
+                        <td>{{B.email}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Address</strong></td>
+                        <td>{{B.address}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Place</strong></td>
+                        <td>{{B.place}}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Date</strong></td>
+                        <td>{{B.date}}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Date</strong></td>
+                        <td>{{B.date1}}</td>
+                    </tr>
+                    
+                    
+                </table>
+            </div>
+        </body>
+    </head>
+</html>
